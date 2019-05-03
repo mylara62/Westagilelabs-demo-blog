@@ -1,0 +1,2 @@
+comment_div = '<div id="article_comment_<%= @comment.id %>"><p><%= @comment.text %></p><div class="reply"><a href="#" class="comment_reply_link" data-commentid="<%= @comment.id %>">Reply</a></div></div><hr>'
+$("#article-comments").append(comment_div);

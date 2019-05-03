@@ -1,0 +1,7 @@
+<% reply.reply_comments.limit(3).each do |reply_comment| %>
+	<div id="reply_comment_<%= reply_comment.id %>">
+		<p><%= reply_comment.text %></p>
+	</div>
+<% end %>
+
+<%= link_to "Load more", load_more_reply_comments_path(type: "Reply Comment", id: reply.id), remote: true if reply.reply_comments.count > 3 %>

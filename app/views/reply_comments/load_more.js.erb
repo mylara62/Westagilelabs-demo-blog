@@ -1,0 +1,7 @@
+<% if params[:type] == "Replies" %>
+	$("#default_comment_reply").css('display', 'none')
+	$('#appended_comment_reply').html('<%= escape_javascript(render("reply_comments/load_more", comments: @comments)) %>')
+<% elsif params[:type] == "Reply Comment" %>
+	$("#default_reply_comment").css('display', 'none')
+	$('#appended_reply_comment').html('<%= escape_javascript(render("reply_comments/load_more", comments: @comments)) %>')
+<% end %>

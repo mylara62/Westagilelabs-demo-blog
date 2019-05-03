@@ -1,0 +1,18 @@
+<% comment.replies.limit(3).each do |reply| %>
+	<div id="comment_reply_<%= reply.id %>">
+		<p><%= reply.text %></p>
+		<div class="reply-comment">
+			<a href="javascript:void(0)" class="reply_comment_link" data-replyid="<%= reply.id %>">Reply</a>
+		</div>
+	</div>
+	<!-- Reply Comment Form -->
+	<div class="col-md-8" id="reply_comment_<%= reply.id %>" style="display: none;">
+		<br>
+		<%= text_field_tag :text, nil, class: "form-control reply-comment", placeholder: "write your comment", id: "#{reply.id}"%><br>
+		<h5> Reply Comments </h5><br>
+		<!-- Replies Appending -->
+		<div id="default_reply_comment"><%= render "reply_comments/replies", reply: reply %></div>
+		<div id="appended_reply_comment"></div>
+	</div>
+<% end %>
+<%= link_to "Load more", load_more_reply_comments_path(type: "Replies", id: comment.id), remote: true if comment.replies.count > 3%>

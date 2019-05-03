@@ -1,0 +1,30 @@
+<div class="container">
+  <h2>Articles</h2>
+  <span style="float: right;"><%= link_to "New Article", new_article_path, class: "btn btn-info" %></span><br><br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    	<% @articles.each do |article| %>
+	      <tr>
+	        <td><%= article.title %></td>
+	        <td>
+	        	<%= link_to article_path(article) do %>
+	        		<i class="fa fa-eye"></i>
+	        	<% end %>&nbsp;&nbsp;
+	        	<%= link_to edit_article_path(article) do %>
+	        		<i class="fa fa-pencil"></i>
+	        	<% end %>&nbsp;&nbsp;
+	        	<%= link_to article_path(article), method: :delete, confirm: "Are you sure delete ?" do %>
+	        		<i class="fa fa-trash"></i>
+	        	<% end %>
+	        </td>
+	      </tr>
+	    <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,11 @@
+<div class="container-fuild">
+	<%= form_for article do |f|%>
+		<div class="col-md-6">
+      <%= f.label :title %><br />
+      <%= f.text_field :title, autofocus: true, placeholder: "Write your article title", autocomplete: "off", class: "form-control" %>
+    </div><br>
+    <div class="col-md-6">
+    	<%= f.submit "Submit", class: "btn btn-primary"%>
+    </div>
+	<% end %>
+</div>

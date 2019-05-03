@@ -1,0 +1,2 @@
+$("#default_reply_comment").css('display', 'none')
+$('#appended_reply_comment').html('<%= escape_javascript(render("reply_comments/replies", reply: @reply)) %>')
